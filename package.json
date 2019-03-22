@@ -1,0 +1,24 @@
+{
+  "name": "friend-finder-app",
+  "version": "1.0.0",
+  "description": "Friend Finder is a full-stack site that will match you up with other users based on your answers to selected questions.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuceroSDJ/friend-finder-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuceroSDJ/friend-finder-app/issues"
+  },
+  "homepage": "https://github.com/LuceroSDJ/friend-finder-app#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
