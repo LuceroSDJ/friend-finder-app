@@ -1,3 +1,10 @@
+/* =========== NOTES =============
+    Routes must be defined before the server can begin accepting requests.
+    The route describes how to handle the path portion of the URL in the HTTP request to the Express server. 
+    First part of defining the route: HTTP request method (ex. GET or POST)
+    Second part: the path specified in the URL (ex. '/' for the root of the website). (Node.js; Dayley-Second Edition)
+*/
+
 // Require dependencies
 // path package sets the correct file path for html files
 var express = require("express");  //test line
