@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Survey</title>
+
+    <!-- Link to css files -->
+    <link rel='stylesheet' text='text/css' href='assets/css/reset.css'>
+    <link rel='stylesheet' text='text/css' href='assets/css/styles.css'>
     
     <!--jQuery-->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
@@ -24,11 +28,19 @@
 
 <div class='container'>
     <div class="jumbotron">
-        <h1 class="display-4">Survey Questions ⁉️</h1>
+        <div class="row justify-content-center">
+            <h1 class="display-4" id='title'>Survey Questions ⁉️</h1>
+        </div>
         <hr class="my-4">
-        <h2 class="display-6">Name</h2>  <!-- change this line of code to required format -->
-        <h2 class="display-6">Link to photo image</h2>   <!--change this line of code to required format -->
-        <a class="btn btn-primary btn-lg" href="/" role="button">🏠</a>
+        <div class="row justify-content-center">
+            <h2 class="display-6">Name *</h2>  <!-- change this line of code to required format -->
+            <input class="form-control form-control-lg" type="text" placeholder="name/nickname">
+        </div>
+        <div class="row justify-content-center">
+            <h2 class="display-6">Link to photo image *</h2>   <!--change this line of code to required format -->
+            <input class="form-control form-control-lg" type="text" placeholder="link">
+        </div>
+        <br>
         
         <!-- Large modal -->
         <div class='container'>
@@ -40,10 +52,122 @@
                             <div class='container'>
                                 <!--jumbotron inside a large modal-->
                                 <div class="jumbotron">
-                                    <h1 class="display-4">Match Me Up!</h1>
+                                    <h1 class="display-7">Match Me Up with the Perfect Friend!</h1>
                                     <!-- add questions -->
                                     <p class="lead"><strong>Let your answers lead you to your future best friend. Good luck!</strong></p>
                                     <hr class="my-4">
+                                    <div class="form-group">
+                                        <label for="FormControlSelect1">1. I enjoy a peaceful weekend reading my favorite book.</label>
+                                        <select class="form-control" id="FormControlSelect1">
+                                            <option value="1">Most of the time</option>
+                                            <option value="2">Often</option>
+                                            <option value="3">Sometimes</option>
+                                            <option value="4">Rarely</option>
+                                            <option value="5">Never</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FormControlSelect2">2. I love watching the news to stay informed of current events.</label>
+                                        <select class="form-control" id="FormControlSelect2">
+                                            <option value="1">Most of the time</option>
+                                            <option value="2">Often</option>
+                                            <option value="3">Sometimes</option>
+                                            <option value="4">Rarely</option>
+                                            <option value="5">Never</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FormControlSelect3">3. I am a big fan of sad and emotional songs.</label>
+                                        <select class="form-control" id="FormControlSelect3">
+                                            <option value="1">Most of the time</option>
+                                            <option value="2">Often</option>
+                                            <option value="3">Sometimes</option>
+                                            <option value="4">Rarely</option>
+                                            <option value="5">Never</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FormControlSelect4">4. Dance is the most beautiful form of art.</label>
+                                        <select class="form-control" id="FormControlSelect4">
+                                            <option value="1">Most of the time</option>
+                                            <option value="2">Often</option>
+                                            <option value="3">Sometimes</option>
+                                            <option value="4">Rarely</option>
+                                            <option value="5">Never</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FormControlSelect5">5. I am an excellent cook and love to experiment new flavors.</label>
+                                        <select class="form-control" id="FormControlSelect5">
+                                            <option value="1">Most of the time</option>
+                                            <option value="2">Often</option>
+                                            <option value="3">Sometimes</option>
+                                            <option value="4">Rarely</option>
+                                            <option value="5">Never</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FormControlSelect6">6. Rainy days are my favorite. They mean hot chocolate and a good movie.</label>
+                                        <select class="form-control" id="FormControlSelect6">
+                                            <option value="1">Most of the time</option>
+                                            <option value="2">Often</option>
+                                            <option value="3">Sometimes</option>
+                                            <option value="4">Rarely</option>
+                                            <option value="5">Never</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FormControlSelect7">7. I enjoy listening elderly people's life stories. They are full of love and humor.</label>
+                                        <select class="form-control" id="FormControlSelect7">
+                                            <option value="1">Most of the time</option>
+                                            <option value="2">Often</option>
+                                            <option value="3">Sometimes</option>
+                                            <option value="4">Rarely</option>
+                                            <option value="5">Never</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FormControlSelect8">7. I enjoy listening elderly people's life stories. They are full of love and humor.</label>
+                                        <select class="form-control" id="FormControlSelect8">
+                                            <option value="1">Most of the time</option>
+                                            <option value="2">Often</option>
+                                            <option value="3">Sometimes</option>
+                                            <option value="4">Rarely</option>
+                                            <option value="5">Never</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FormControlSelect8">8. I enjoy listening elderly people's life stories. They are full of love and humor.</label>
+                                        <select class="form-control" id="FormControlSelect8">
+                                            <option value="1">Most of the time</option>
+                                            <option value="2">Often</option>
+                                            <option value="3">Sometimes</option>
+                                            <option value="4">Rarely</option>
+                                            <option value="5">Never</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FormControlSelect9">9. I have a good sense of humor.</label>
+                                        <select class="form-control" id="FormControlSelect9">
+                                            <option value="1">Most of the time</option>
+                                            <option value="2">Often</option>
+                                            <option value="3">Sometimes</option>
+                                            <option value="4">Rarely</option>
+                                            <option value="5">Never</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FormControlSelect10">10. I have a good sense of humor.</label>
+                                        <select class="form-control" id="FormControlSelect10">
+                                            <option value="1">Most of the time</option>
+                                            <option value="2">Often</option>
+                                            <option value="3">Sometimes</option>
+                                            <option value="4">Rarely</option>
+                                            <option value="5">Never</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block">Submit 📬</button>
+
                                 </div>
                             </div>           
                         </div>
