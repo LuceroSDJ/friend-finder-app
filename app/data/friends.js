@@ -2,12 +2,12 @@
 // This data will hold a list of available friends.
 var friends = [
     {
-        Name: "Lucero",
+        Name: "Shakira",
         Photo: "Test",
         Scores: ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
     },
     {
-        Name: "Carmen",
+        Name: "Bruno Mars",
         Photo: "Test",
         Scores: ["5", "5", "5", "5", "5", "5", "5", "5", "5", "5"]
     }
