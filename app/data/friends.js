@@ -1,6 +1,6 @@
 // DATA
 // This data will hold a list of available friends.
-var friendsList = [
+var friends = [
     {
         Name: "Lucero",
         Photo: "Test",
@@ -14,4 +14,4 @@ var friendsList = [
 ];
 
 // Export the array.
-module.exports = friendsList;
+module.exports = friends;

@@ -50,6 +50,8 @@ app.use('/survey', function(req, res) {
 // router (requiered route as demonstrated in class activities)
 //require("./app/routing/apiRoutes.js")(app);
 require("./app/routing/htmlRoutes.js")(app);
+require("./app/routing/apiRoutes.js")(app);
+
 
 // ====== ERROR ========
 //' CANNOT FIND MODULE'/'REQUIRE IS NOT A FUNCITON' : try creating a variable = require() => gave me another error
