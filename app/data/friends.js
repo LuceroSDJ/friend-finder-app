@@ -4,7 +4,7 @@ var friends = [
     {
         Name: "Shakira",
         Photo: "Test",
-        Scores: ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
+        Scores: ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"] //need to find the sum
     },
     {
         Name: "Bruno Mars",
