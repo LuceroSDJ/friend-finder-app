@@ -185,10 +185,10 @@
 
 $("#submitSurvey").on("click", function(event) {
     event.preventDefault();
-    // Here we grab the form elements
+    // Here we grab the form elements & 'convert'  each user's results into a simple array of numbers
     var userInputValues = {
         Name: $("#name").val().trim(),
-        UserResultsArray: [
+        Scores: [
             $("#FormControlSelect1").val(),
             $("#FormControlSelect2").val(),
             $("#FormControlSelect3").val(),
@@ -211,11 +211,11 @@ $("#submitSurvey").on("click", function(event) {
     */
     $.post("/api/friends", userInputValues,
       function(data) {
-        // If a table is available... tell user they are booked.
+        // Alert user she/he has been added to friends list
         if (data) {
-          alert("YOu have been added to the list of friends!");
+          alert("You have been added to the list of friends!");
         }
-        // If a table is not available... tell user they on the waiting list.
+        // If any data is missing, request input 
         else {
           alert("Please fill in the required text fields.");
         }
