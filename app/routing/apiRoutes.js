@@ -50,25 +50,8 @@ module.exports = function(app) {
             if(subtraction === closestScore) {
                 console.log(friendsData[i].Name);
                 bestFriend = friendsData[i].Name;
-            }
-        };  // possibly I just need to create my differences array and create another for loop
-
-            /*
-        for(var i = 0; i < friendsData.length; i++) {
-            // here I am just finding the smallest number in differences array created in previous for loop
-            
-            // In this case, how to link 0 to Shakira?????
-
-
-        };
-        */
-        // test.....
-
-            /*
-                if(subtraction === closestScore) {
-                    console.log(friendsData[i].Name);
-                }
-            */
+            };
+        };  
 
             
         // Then, find the minimum value
