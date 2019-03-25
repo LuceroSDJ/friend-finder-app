@@ -23,17 +23,76 @@ module.exports = function(app) {
         var userName = userInput.Name;  
         console.log(userName);    // works as expected
 
+
         // =========== Test user input scores total =====================
+        var differences = []; // I want to store all differences to later find the min
+        var closestScore = 0; 
+        var bestFriend;
+
         var userInputScoresTotal = eval(inputScores.join('+'));
         console.log(
             "userInputScoresTotal: " + userInputScoresTotal// example: should output 10
           );
         // =========== Test default friends scores total ================
         // here I am looping through the friends array and console logging their total score
+        
         for(var i = 0; i < friendsData.length; i++) {
             var defaultFriendScores = eval(friendsData[i].Scores.join('+'))
-            console.log(defaultFriendScores);
+            console.log("total score: " + defaultFriendScores);
+            //return the absolute value of a number abs()method
+            var subtraction = Math.abs(userInputScoresTotal - defaultFriendScores);
+            console.log("difference compared to user's input: " + subtraction);
+            // Now, I want to push the subtraction to differences empty array
+            differences.push(subtraction);
+            console.log("array of differences: " + differences);  //the array
+            closestScore = Math.min.apply(null, differences); 
+                console.log("smallest difference: " + closestScore);
+            if(subtraction === closestScore) {
+                console.log(friendsData[i].Name);
+                bestFriend = friendsData[i].Name;
+            }
+        };  // possibly I just need to create my differences array and create another for loop
+
+            /*
+        for(var i = 0; i < friendsData.length; i++) {
+            // here I am just finding the smallest number in differences array created in previous for loop
+            
+            // In this case, how to link 0 to Shakira?????
+
+
         };
+        */
+        // test.....
+
+            /*
+                if(subtraction === closestScore) {
+                    console.log(friendsData[i].Name);
+                }
+            */
+
+            
+        // Then, find the minimum value
+        // notes: The built-in functions Math.max() and Math.min() find the maximum and minimum value
+        //var closestScore = Math.min(differences);  //note: These functions will not work as-is with arrays of numbers :'(
+            //console.log(closestScore);  //NaN
+
+            /*
+            var closestScore = Math.min.apply(null, differences); 
+            console.log(closestScore);
+
+            for(var i = 0; i < friendsData.length; i++) {
+                if(subtraction === closestScore) {
+                    console.log(friendsData[i].Name);
+                }
+            }
+            */
+
+        // now maybe I can loop through friends array difference and match it with closestScore
+
+
+
+
+
 
     /* compare the difference between current user's scores against those from other users, 
     question by question. Add up the differences to calculate the totalDifference. 
@@ -43,7 +102,7 @@ module.exports = function(app) {
             Total Difference: 2 + 1 + 2 = 5
     */
 
-        //return the absolute value of a number abs()method
+        
         // loop through friends array
         //for(var i = 0; i < friendsData.length; i++) {
             // find total score of user's input scores
@@ -63,5 +122,7 @@ module.exports = function(app) {
             //res.json(true);
         };
 
+        console.log("best friend: " + bestFriend);
+        res.json(bestFriend);
     });
 };
