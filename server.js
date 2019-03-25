@@ -19,7 +19,7 @@ app.use(express.json());
 app.get('/', function (req, res) {
     res.send('Hello from Express!') 
 }) ============================ */
-
+app.use(express.static('app/public/assets')); //static assets 
 // routes
 require("./app/routing/htmlRoutes.js")(app);
 require("./app/routing/apiRoutes.js")(app);

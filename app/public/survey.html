@@ -209,7 +209,7 @@
 
 <footer class="footer">
     <div class="container">
-        <p><a href="/api/friends">API Friends List</a> | <a href="#">https://lucerosdj.github.io/friend-finder-app/</a>
+        <p><a href="/api/friends">API Friends List</a> | <a href="https://lucerosdj.github.io/friend-finder-app/">GitHub Repo</a>
     </div>
 </footer>
 
@@ -268,9 +268,9 @@ $("#submitSurvey").on("click", function(event) {
             $("#submitSurvey").hide();
             // Grab the result from the AJAX post so that the best match's name and photo are displayed.
             $("#resultsDiv").show();
-            $("#bestMatchname").html(data.Name);
+            $("#bestMatchname").html(data.Name); 
             $("#bestMatchname").css("color", "red");
-            $("#bestMatchPhoto").attr("src", data.Photo);
+            $("#bestMatchPhoto").attr("src", data.Photo);   // check this line
             $("#bestMatchPhoto").attr("alt", "portrait picture");
             //$("#bestMatchPhoto").prop("src", data.Photo);
         };
