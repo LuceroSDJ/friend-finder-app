@@ -23,69 +23,6 @@ module.exports = function(app) {
         var userName = userInput.Name;  
         console.log(userName);    // works as expected
 
-
-        // =========== Test user input scores total =====================
-        var differences = []; // I want to store all differences to later find the min
-        var closestScore = 0; 
-        var bestFriend;
-
-        var userInputScoresTotal = eval(inputScores.join('+'));
-        console.log(
-            "userInputScoresTotal: " + userInputScoresTotal// example: should output 10
-          );
-        // =========== Test default friends scores total ================
-        // here I am looping through the friends array and console logging their total score
-        
-        for(var i = 0; i < friendsData.length; i++) {
-            var defaultFriendScores = eval(friendsData[i].Scores.join('+'))
-            console.log("total score: " + defaultFriendScores);
-            //return the absolute value of a number abs()method
-            var subtraction = Math.abs(userInputScoresTotal - defaultFriendScores);
-            console.log("difference compared to user's input: " + subtraction);
-            // Now, I want to push the subtraction to differences empty array
-            differences.push(subtraction);
-            console.log("array of differences: " + differences);  //the array
-            closestScore = Math.min.apply(null, differences); 
-                console.log("smallest difference: " + closestScore);
-            if(subtraction === closestScore) {
-                console.log(friendsData[i].Name);
-                bestFriend = friendsData[i].Name;
-            };
-        };  
-
-            
-        // Then, find the minimum value
-        // notes: The built-in functions Math.max() and Math.min() find the maximum and minimum value
-        //var closestScore = Math.min(differences);  //note: These functions will not work as-is with arrays of numbers :'(
-            //console.log(closestScore);  //NaN
-
-            /*
-            var closestScore = Math.min.apply(null, differences); 
-            console.log(closestScore);
-
-            for(var i = 0; i < friendsData.length; i++) {
-                if(subtraction === closestScore) {
-                    console.log(friendsData[i].Name);
-                }
-            }
-            */
-
-        // now maybe I can loop through friends array difference and match it with closestScore
-
-
-
-
-
-
-    /* compare the difference between current user's scores against those from other users, 
-    question by question. Add up the differences to calculate the totalDifference. 
-            Example:
-            User 1: [5, 1, 4, 4, 5, 1, 2, 5, 4, 1]
-            User 2: [3, 2, 6, 4, 5, 1, 2, 5, 4, 1]
-            Total Difference: 2 + 1 + 2 = 5
-    */
-
-        
         // loop through friends array
         //for(var i = 0; i < friendsData.length; i++) {
             // find total score of user's input scores
@@ -96,16 +33,67 @@ module.exports = function(app) {
             //then, loop through the new array while findng the difference between default friends and 
             //new friend and push the dirrefences to a new array. Then, find the min number of the final array
         //}
+        // notes: The built-in functions Math.max() and Math.min() find the maximum and minimum value
+        //var closestScore = Math.min(differences);  //note: These functions will not work as-is with arrays of numbers :'(
+            //console.log(closestScore);  //NaN
+        // now maybe I can loop through friends array difference and match it with closestScore
 
 
+        // =========== Test user input scores total =====================
+        var differences = []; // I want to store all differences to later find the min
+        var closestScore = 0; 
+        var newBestFriend;
+        // total score of user's input scores
+        var userInputScoresTotal = eval(inputScores.join('+'));
+        console.log(
+            "userInputScoresTotal: " + userInputScoresTotal// example: should output 10
+        );
+        // =========== Test default friends scores total ================
+        // here I am looping through the friends array and console logging their total score
+        for(var i = 0; i < friendsData.length; i++) {
+            //find the total amount per object stored in friends array (found in friends.js) & store in a variable 
+            var defaultFriendScores = eval(friendsData[i].Scores.join('+'))
+            console.log("total score: " + defaultFriendScores);
+            //find the difference/absolute value of a number using abs()method & store it in a variable
+            var subtraction = Math.abs(userInputScoresTotal - defaultFriendScores);
+            console.log("difference compared to user's input: " + subtraction);
+            // Now, I want to push the 'subtraction' to 'differences' empty array
+            differences.push(subtraction);
+            console.log("array of differences: " + differences);  //the array
+            // then, from this array of 'differences', I need to find the smallest number
+            closestScore = Math.min.apply(null, differences); //terminal=> array of differences: 0,40
+                console.log("smallest difference: " + closestScore); //terminal=> smallest difference: 0
+            //find index number of closestScore to match it with index number of the corresponding object stored in frinds array (friends.js)
+            var closestScoreIndex = differences.indexOf(closestScore);
+            console.log(closestScoreIndex);
+            //match index numbers friendsData[index#?]
+            var newBestFriend = friendsData[closestScoreIndex];
+            console.log(newBestFriend);
 
+            // if(subtraction === closestScore) {
+            //     console.log(friendsData[i].Name);
+            //     bestFriend = friendsData[i].Name;
+            // };
+        };  
         // push the users input to friends array
         if (friendsData) {
             friendsData.push(userInput);  //req.body = user's input values
-            //res.json(true);
+            res.json(newBestFriend);
+            /*
+            res.json(
+                `
+                BestMatch: ${friendsData[i].Name}
+                Photo: ${friendsData[i].Photo}
+                
+                `
+            );  */
         };
-
-        console.log("best friend: " + bestFriend);
-        res.json(bestFriend);
     });
 };
+/* compare the difference between current user's scores against those from other users, 
+    question by question. Add up the differences to calculate the totalDifference. 
+            Example:
+            User 1: [5, 1, 4, 4, 5, 1, 2, 5, 4, 1]
+            User 2: [3, 2, 6, 4, 5, 1, 2, 5, 4, 1]
+            Total Difference: 2 + 1 + 2 = 5
+*/
