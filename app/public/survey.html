@@ -33,11 +33,8 @@
         </div>
         <div class="row justify-content-center">
             <h2 class="display-6">Link to photo image *</h2>   <!--change this line of code to required format -->
-            <form action="/action_page.php">
-                Select images: <input id="photoLink" type="file" name="img" multiple>
-            </form>
-            
-            <!-- <input id="photoLink" class="form-control form-control-lg" type="text" placeholder="link"> -->
+            <!-- Any link to an image results in a CORBS ERROR -->
+            <input id="photoLink" class="form-control form-control-lg" type="text" placeholder="link"> 
         </div>
         <br>
         
@@ -197,7 +194,7 @@ $("#submitSurvey").on("click", function(event) {
     // Here we grab the form elements & 'convert'  each user's results into a simple array of numbers
     var userInputValues = {
         Name: $("#name").val().trim(),
-        Photo: $("#photoLink").val(),
+        Photo: $("#photoLink").val().trim(),
         Scores: [
             $("#FormControlSelect1").val(),
             $("#FormControlSelect2").val(),
