@@ -6,11 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Survey</title>
 
-     <!-- Latest compiled and minified CSS & JS -->
-     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-     <script src="https://code.jquery.com/jquery.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
-
     <!-- Link to css files 
     <link rel='stylesheet' text='text/css' href='assets/css/reset.css'>
     <link rel='stylesheet' text='text/css' href='assets/css/styles.css'>
@@ -57,10 +52,12 @@
                             <div class='container'>
                                 <!--jumbotron inside a large modal-->
                                 <div class="jumbotron" id="myJumbotron">
-                                    <h1 class="display-7">Match Me Up with the Perfect Friend!</h1>
-                                    <!-- add questions -->
-                                    <p class="lead"><strong>Let your answers lead you to your future best friend. Good luck!</strong></p>
-                                    <hr class="my-4">
+                                        <div class="popUpHeader">
+                                        <h1 class="display-7 text-center">Match Me Up with the Perfect Friend!</h1>
+                                        <!-- add questions -->
+                                        <p class="lead text-center"><strong>Let your answers lead you to your future best friend. Good luck!</strong></p>
+                                        <hr class="my-4">
+                                    </div>
                                     <div class="form-group">
                                         <label for="FormControlSelect1">1. I enjoy a peaceful weekend reading my favorite book.</label>
                                         <select class="form-control" id="FormControlSelect1">
@@ -154,18 +151,21 @@
                                     <div class="form-group">
                                         <label for="FormControlSelect10">10. I have a good sense of humor.</label>
                                         <select class="form-control" id="FormControlSelect9">
-                                            <option value="1">Most of the time</option>
-                                            <option value="2">Often</option>
-                                            <option value="3">Sometimes</option>
-                                            <option value="4">Rarely</option>
-                                            <option value="5">Never</option>
+                                            <option value="1">Completely agree</option>
+                                            <option value="2">Mostly agree</option>
+                                            <option value="3">Somewhat agree</option>
+                                            <option value="4">Mostly disagree</option>
+                                            <option value="5">Completely disagree</option>
                                         </select>
                                     </div>
                                     <button type="button" id="submitSurvey" class="btn btn-primary btn-lg btn-block">Submit 📬</button>
                                     <!-- Best friend match info goes here -->
                                     <div class="container" id="resultsDiv">
-                                        <h1 id="bestMatchname"></h1>
-                                        <img id="bestMatchPhoto" src=""/>
+                                        <h1 id="popUpTitle" class="text-center"></h1>
+                                        <h1 id="bestMatchName" class="text-center"></h1>
+                                        <div class="text-center">
+                                            <img id="bestMatchPhoto" class="w-50 p-3" src=""/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>           
@@ -235,15 +235,16 @@ $("#submitSurvey").on("click", function(event) {
             $("#name").val("");
             $("#photoLink").val("");
             // hide survey
+            $(".popUpHeader").hide();
             $(".form-group").hide();
             $("#submitSurvey").hide();
             // Grab the result from the AJAX post so that the best match's name and photo are displayed.
             $("#resultsDiv").show();
-            $("#bestMatchname").html(data.Name); 
-            $("#bestMatchname").css("color", "red");
-            $("#bestMatchPhoto").attr("src", data.Photo);   // check this line
+            $("#popUpTitle").text("🎶Meet your new Best Friend!🎶");
+            $("#bestMatchName").text(data.Name); 
+            $("#bestMatchName").css("color", "red");
+            $("#bestMatchPhoto").attr("src", data.Photo);   
             $("#bestMatchPhoto").attr("alt", "portrait picture");
-            //$("#bestMatchPhoto").prop("src", data.Photo);
         };
         
         /* ================ ERROR #1 ==========================
