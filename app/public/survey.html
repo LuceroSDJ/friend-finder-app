@@ -21,11 +21,6 @@
 </head>
 <body>
 
-<!-- <div class='container'>
-    <h1>Survey Questions</h1>
-    generate questions on the fly or hard code them? 🧐 
-</div> -->
-
 <div class='container'>
     <div class="jumbotron">
         <div class="row justify-content-center">
@@ -33,12 +28,16 @@
         </div>
         <hr class="my-4">
         <div class="row justify-content-center">
-            <h2 class="display-6">Name *</h2>  <!-- change this line of code to required format -->
+            <h2 class="display-6">Name *</h2>  <!-- autocomple is already enabled by boostrap! wow! --> <!-- change this line of code to required format -->
             <input id="name" class="form-control form-control-lg" type="text" placeholder="name/nickname">
         </div>
         <div class="row justify-content-center">
             <h2 class="display-6">Link to photo image *</h2>   <!--change this line of code to required format -->
-            <input id="photoLink" class="form-control form-control-lg" type="text" placeholder="link">
+            <form action="/action_page.php">
+                Select images: <input id="photoLink" type="file" name="img" multiple>
+            </form>
+            
+            <!-- <input id="photoLink" class="form-control form-control-lg" type="text" placeholder="link"> -->
         </div>
         <br>
         
@@ -198,7 +197,7 @@ $("#submitSurvey").on("click", function(event) {
     // Here we grab the form elements & 'convert'  each user's results into a simple array of numbers
     var userInputValues = {
         Name: $("#name").val().trim(),
-        Photo: $("#photoLink").val().trim(),
+        Photo: $("#photoLink").val(),
         Scores: [
             $("#FormControlSelect1").val(),
             $("#FormControlSelect2").val(),
