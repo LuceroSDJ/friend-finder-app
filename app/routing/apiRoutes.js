@@ -64,7 +64,7 @@ module.exports = function(app) {
             closestScore = Math.min.apply(null, differences); //terminal=> array of differences: 0,40
                 console.log("smallest difference: " + closestScore); //terminal=> smallest difference: 0
             //find index number of closestScore to match it with index number of the corresponding object stored in frinds array (friends.js)
-            var closestScoreIndex = differences.indexOf(closestScore);
+            var closestScoreIndex = differences.indexOf(closestScore); //order matters
             console.log(closestScoreIndex);
             //match index numbers friendsData[index#?]
             var newBestFriend = friendsData[closestScoreIndex];
