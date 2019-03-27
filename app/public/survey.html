@@ -232,6 +232,13 @@ $("#confirm").on("click", function(event) {
     };   
 });
 
+// refresh page a few seconds after best match info is displayed
+function refresh() {
+setTimeout(function () {
+    window.location.reload()
+}, 4000);  //4 seconds (4000 milliseconds)
+}
+
 // submit on click function
 $("#submitSurvey").on("click", function(event) {
     event.preventDefault();
@@ -272,8 +279,8 @@ $("#submitSurvey").on("click", function(event) {
             //alert("Please fill in the required text fields.");
             //}
             // Clear the form when submitting
-            $("#name").val().trim();
-            $("#photoLink").val();
+            $("#name").val().trim("");
+            $("#photoLink").val("");
             // hide survey
             $(".popUpHeader").hide();
             $(".form-group").hide();
@@ -286,6 +293,7 @@ $("#submitSurvey").on("click", function(event) {
             $("#bestMatchPhoto").attr("src", data.Photo);   
             $("#bestMatchPhoto").attr("alt", "portrait picture");
         };
+        refresh();
         
         /* ================ ERROR #1 ==========================
         Cross-Origin Read Blocking (CORB) blocked cross-origin response 
