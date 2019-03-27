@@ -44,7 +44,10 @@ Friend Finder's goal is to match you up with other users based on your answers t
 
 ### FUNCTIONALITY
 #### 1. `Identify yourself & complete the Survey.`
-* You will be asked to provide your name and a link to your portrait picture.
+* You will be `required` to provide your name and a link to your portrait picture. 
+    `MODIFICATION: choose a gender from the drop down menu instead of providing a link.`
+* If any of these two questions is left blank or you add unauthorized characters, an alert message will remind you to provide an answer.
+    `only alphanumeric characters and spaces will be accepted`
 * When you are ready to find your new best friend, click on the button below. It will present the survey in a modal.
 * Your survey has 10 questions with a scale of 1 to 5 based on how much you agree or disagree with a question.
 ![identifyYourself](https://user-images.githubusercontent.com/44692872/55022621-f12fb580-4fc8-11e9-9d27-fec0f77f1f42.png)
@@ -83,13 +86,7 @@ remove the error, I will try to find an alternative way of displaying an image.
         * Each option has a default image assigned to it, which is a gender silhouette portrait.
     When time permits, I will continue working on this app for my personal and professional growth.
 ```
-
-
-
-
-
-
-
-
-
-
+### `MODIFIED APP IMAGES`
+![selectImgRequired](https://user-images.githubusercontent.com/44692872/55043248-599b8880-5003-11e9-9d46-5469bbdf79ae.png)
+![luceroNamesilhouette](https://user-images.githubusercontent.com/44692872/55043267-6d46ef00-5003-11e9-9330-5c624cc02390.png)
+![luceroObjectPNG](https://user-images.githubusercontent.com/44692872/55043283-7afc7480-5003-11e9-8bcf-f532814a51cc.png)
