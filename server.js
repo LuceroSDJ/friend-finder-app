@@ -1,6 +1,7 @@
 // ================= Require/import Dependencies =============
 var express = require("express");
-//var path = require("path"); 
+var path = require("path"); 
+require("dotenv").config();
 
 /* ================= NOTES ============================
     In order to implement Express as the HTTP server for this node.js app,
@@ -19,7 +20,7 @@ app.use(express.json());
 app.get('/', function (req, res) {
     res.send('Hello from Express!') 
 }) ============================ */
-app.use(express.static('app/public/assets')); //static assets 
+app.use(express.static('app/public/assets')); //static assets directory
 // routes
 require("./app/routing/htmlRoutes.js")(app);
 require("./app/routing/apiRoutes.js")(app);
@@ -28,6 +29,6 @@ require("./app/routing/apiRoutes.js")(app);
     'The app.listen(port) call binds the underlying HTTP connection 
     to the port and begins listening on it. */
 
-app.listen(PORT, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("App listening on PORT: " + PORT);  //app listening ✓
 });

@@ -31,9 +31,11 @@ Friend Finder's goal is to match you up with other users based on your answers t
     - app
       - data
         - friends.js
-      - public (this is our static folder)
+      - public 
         - home.html
         - survey.html
+        - assets
+            - images
       - routing
         - apiRoutes.js
         - htmlRoutes.js
