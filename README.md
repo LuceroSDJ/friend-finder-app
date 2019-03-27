@@ -14,7 +14,7 @@ Friend Finder's goal is to match you up with other users based on your answers t
 * [Please visit my porfolio page](https://lucerosdj.github.io/Portfolio/)
 
 ### HEROKU: HOSTING PLATFORM
-* [My app can be found at ](https://gentle-dusk-25183.herokuapp.com/)
+* My app can be found at [https://gentle-dusk-25183.herokuapp.com/](https://gentle-dusk-25183.herokuapp.com/)
 
 ### TECHNOLOGIES
 * node.js
