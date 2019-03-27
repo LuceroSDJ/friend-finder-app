@@ -27,21 +27,37 @@
             <h1 class="display-4" id='title'>Survey Questions ⁉️</h1>
         </div>
         <hr class="my-4">
-        <div class="row justify-content-center">
-            <h2 class="display-6">Name *</h2>  <!-- autocomple is already enabled by boostrap! wow! --> <!-- change this line of code to required format -->
-            <input id="name" class="form-control form-control-lg" type="text" placeholder="name/nickname">
-        </div>
-        <div class="row justify-content-center">
-            <h2 class="display-6">Link to photo image *</h2>   <!--change this line of code to required format -->
-            <!-- Any link to an image results in a CORBS ERROR -->
-            <input id="photoLink" class="form-control form-control-lg" type="text" placeholder="link"> 
-        </div>
+
+
+        <form>
+            <div class="row justify-content-center">
+                <h2 class="display-6">Name *</h2>  <!-- autocomple is already enabled by boostrap! wow! --> <!-- change this line of code to required format -->
+                <input id="name" class="form-control form-control-lg" type="text" placeholder="name/nickname">
+            </div>
+            <div class="row justify-content-center">
+                
+                <h2 class="display-6">Profile image *</h2>   <!--change this line of code to required format -->
+                <!-- Any link to an image results in a CORBS ERROR -->
+                <!-- <input id="photoLink" class="form-control form-control-lg" type="text" placeholder="link"> -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="photoLink">Options</label>
+                    </div>
+                    <select class="custom-select" id="photoLink">
+                        <option value="" selected>Choose...</option>
+                        <option value="images/female.png">Female</option>
+                        <option value="images/male.jpeg">male</option>
+                        <option value="images/nonBinary.png">Non-binary</option>
+                    </select>
+                </div>
+            </div>
+        </form>
         <br>
         
         <!-- Large modal -->
         <div class='container' id="myModal">
             <div class="row justify-content-center">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><strong>I am ready to find the friend of my dreams!</strong></button>  <!-- 😅 -->
+                <button id="confirm" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><strong>I am ready to find the friend of my dreams!</strong></button>  <!-- 😅 -->
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -188,13 +204,41 @@ $( document ).ready(function() {
 // The code below determines how the form data is sent to the server.
 // grab all user's input values when user click the submit button.
 
+/* ====================== NOTES ==================================
+"User-submitted data should also always be verified using a secure server-side script. 
+Otherwise a browser with JavaScript disabled, or a hacker trying to compromise your site, 
+can easily by-pass client-side validation."
+==================================================================
+*/
+
+// when user confirms she/he is ready for the survey, make sure user provided name and gender
+$("#confirm").on("click", function(event) {
+    var validateInputName = $("#name").val().trim();
+    var validateImgSelect = $("#photoLink").val();
+    // for security purposes only alphanumeric characters and spaces must be accepted
+    var regular = /^[\w ]+$/;
+    // validation will fail if any of the input fields is left blank
+    if(validateInputName === "" || validateImgSelect ==="") {
+    alert("Please add required identifying information in order to proceed. Thank you.");
+    return false;
+    }
+    // validation will fail if unauthorized characters are entered by the user in the imput field 'name'
+    else if(!regular.test(validateInputName)) {
+    alert("Name input field contains invalid characters!");
+    return false;
+    }
+    else {
+        return true;
+    };   
+});
+
+// submit on click function
 $("#submitSurvey").on("click", function(event) {
-    
     event.preventDefault();
-    // Here we grab the form elements & 'convert'  each user's results into a simple array of numbers
+    // Here we grab the form elements & 'convert'  each user's results into a simple array 
     var userInputValues = {
         Name: $("#name").val().trim(),
-        Photo: $("#photoLink").val().trim(),
+        Photo: $("#photoLink").val(),
         Scores: [
             $("#FormControlSelect1").val(),
             $("#FormControlSelect2").val(),
@@ -215,7 +259,7 @@ $("#submitSurvey").on("click", function(event) {
         Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
         The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
         depending on if a tables is available or not.
-    */
+    =========================================== */
 
     $.post("/api/friends", userInputValues,
     function(data) {
@@ -228,8 +272,8 @@ $("#submitSurvey").on("click", function(event) {
             //alert("Please fill in the required text fields.");
             //}
             // Clear the form when submitting
-            $("#name").val("");
-            $("#photoLink").val("");
+            $("#name").val().trim();
+            $("#photoLink").val();
             // hide survey
             $(".popUpHeader").hide();
             $(".form-group").hide();
@@ -247,6 +291,13 @@ $("#submitSurvey").on("click", function(event) {
         Cross-Origin Read Blocking (CORB) blocked cross-origin response 
         https://www.pexels.com/photo/smiling-woman-looking-upright-standing-against-yellow-wall-1536619/ 
         with MIME type text/html. See https://www.chromestatus.com/feature/5629709824032768 for more details.
+
+        =================== ERROR #1 UPDATE ====================
+        For the purpose of deploying to Heroku for a grade, I am implementing an alternative way for users to provide
+        an image prior to completing the survey.
+            * I changed the photo link input field to a select/option type of question.
+            * Users must select a gender: female, male or non-binaty.
+            * Each option has a default image assigned to it, which is a gender silhouette portrait.
         */
 
         /* ================ ERROR #2 ===========================

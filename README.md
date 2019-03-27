@@ -10,7 +10,7 @@ In addition, Express make it easier for us to design server routes and handle re
 ## GOAL
 Friend Finder's goal is to match you up with other users based on your answers to selected questions.  The app will take in results from your survey, then compare your answers with those from other users. As a result,the name and picture of the user with the best overall match will be displayed.
 
-## `friend-finder-app` HAS BEEN LINKED TO MY PORTFOLIO
+### `friend-finder-app` HAS BEEN LINKED TO MY PORTFOLIO
 * [Please visit my porfolio page](https://lucerosdj.github.io/Portfolio/)
 
 ### TECHNOLOGIES
@@ -65,15 +65,25 @@ Friend Finder's goal is to match you up with other users based on your answers t
 
 ## DEBUGGING: WORK IN PROGRESS
 * I am currently dealing with the following error message:
+```
     Cross-Origin Read Blocking (CORB) blocked cross-origin response 
     https://www.pexels.com/photo/smiling-woman-looking-upright-standing-against-yellow-wall-1536619/ 
     with MIME type text/html. See https://www.chromestatus.com/feature/5629709824032768 for more details.
+```
 * Since my app appears to be rejecting the links to pictures (for security), I saved the existing friends' portrait photos in assets/images directories to successfully display your new friend's picture.
 * I will try to get rid of CORB error in order for my app to accept the link to your photo. If unable to 
 remove the error, I will try to find an alternative way of displaying an image.
 * `I have included a directory inside of images directory with screen shots of CORB error message.`
+```
+    =================== ERROR #1 UPDATE ====================
+    For the purpose of deploying to Heroku for a grade, I am implementing an alternative way 
+    for users to provide an image prior to completing the survey.
+        * I changed the photo link input field to a `select/option type of question`.
+        * Users must select a gender: female, male or non-binaty.
+        * Each option has a default image assigned to it, which is a gender silhouette portrait.
+```
 
-# Good Luck!
+
 
 
 
