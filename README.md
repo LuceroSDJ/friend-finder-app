@@ -11,14 +11,13 @@ In addition, Express make it easier for us to design server routes and handle re
 Friend Finder's goal is to match you up with other users based on your answers to selected questions.  The app will take in results from your survey, then compare your answers with those from other users. As a result,the name and picture of the user with the best overall match will be displayed.
 
 ### `friend-finder-app` HAS BEEN LINKED TO MY PORTFOLIO
-* [Please visit my porfolio page](https://lucerosdj.github.io/Portfolio/)
+* [Visit my porfolio page](https://lucerosdj.github.io/Portfolio/)
 
 ### HEROKU: HOSTING PLATFORM
-* My app can be found at [https://gentle-dusk-25183.herokuapp.com/](https://gentle-dusk-25183.herokuapp.com/)
+* [Deployed App](https://gentle-dusk-25183.herokuapp.com/)
 
 ### TECHNOLOGIES
 * node.js
-* Express
 * JavaScript
 * BOOTSTRAP
 * HTML
@@ -56,7 +55,8 @@ Friend Finder's goal is to match you up with other users based on your answers t
 * When you are ready to find your new best friend, click on the button below. It will present the survey in a modal.
 * Your survey has 10 questions with a scale of 1 to 5 based on how much you agree or disagree with a question.
 ![identifyYourself](https://user-images.githubusercontent.com/44692872/55022621-f12fb580-4fc8-11e9-9d27-fec0f77f1f42.png)
-![surveyQuestionsNroute](https://user-images.githubusercontent.com/44692872/55025224-8b462c80-4fce-11e9-96bc-9a352e950079.png)
+![survey](https://user-images.githubusercontent.com/44692872/60935250-ddb20d00-a28e-11e9-833a-fb9fb4bd220a.png)
+
 
 #### 2. `Meet your new best friend!`
 * Once you submit your answers, you will be added to the existing list of friends. Therefore, other users will be able to find you.
