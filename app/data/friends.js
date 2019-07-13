@@ -1,5 +1,5 @@
 // DATA
-// This data will hold a list of available friends.
+// This data holds a list of available friends.
 var friends = [
     {
         Name: "Bruno",

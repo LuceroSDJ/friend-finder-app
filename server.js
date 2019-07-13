@@ -13,8 +13,17 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 //Set up the Express app to handle data parsing
+//Bind application-level middleware to an instance of the app object by using the app.use() [expressjs.com]
+/* express.urlencoded([options]) parses incoming requests with urlencoded payloads and is based on body-parser.
+A new body object containing the parsed data is populated on the request object after the middleware (i.e. req.body),
+or an empty object ({}) if there was no body to parse, the Content-Type was not matched, or an error occurred.
+This object will contain key-value pairs, 
+where the value can be a string or array (when extended is false), 
+or any type (when extended is true).
+URL Encoding is used when placing text in a query string to avoid it being confused with the URL itself.
+*/
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.json());  // It parses incoming requests with JSON payloads and is based on body-parser
 
 /*  ====== test ==============
 app.get('/', function (req, res) {

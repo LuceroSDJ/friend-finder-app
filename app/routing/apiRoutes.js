@@ -1,4 +1,4 @@
-// Initialize a variable as a data source holding the array of friends on friends.js
+// Initialize a variable as a data source holding the array of friends in friends.js
 var friendsData = require("../data/friends");  
 
 // Routing
